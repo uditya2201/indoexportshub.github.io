@@ -8,103 +8,119 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #f7f9fc, #e3f2fd);
+      background-color: #f5f5f5;
       color: #333;
     }
+
     header {
-      background-color: #0077b6;
-      color: white;
-      padding: 2rem;
+      background: linear-gradient(90deg, #ff8a00, #e52e71);
+      padding: 30px 0;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      color: white;
     }
-    h1 {
+
+    header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 3rem;
+      font-weight: bold;
     }
-    .section {
-      padding: 3rem 1.5rem;
+
+    .contact {
       text-align: center;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #555;
+      font-size: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    .section h2 {
-      color: #0077b6;
-      font-size: 2rem;
-    }
-    .contact, .products {
+
+    .products {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
+      justify-content: center;
+      padding: 30px 15px;
+      background-color: #fdfdfd;
     }
-    .card {
-      background: white;
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      flex: 1 1 300px;
-      max-width: 400px;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      height: 200px;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-    footer {
-      background-color: #0077b6;
-      color: white;
+
+    .product-card {
+      background-color: white;
+      border-radius: 15px;
+      margin: 15px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
+      transition: transform 0.3s ease;
     }
-    @media(max-width: 768px) {
-      h1 { font-size: 2rem; }
-      .section h2 { font-size: 1.5rem; }
+
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .product-card h3 {
+      margin-top: 15px;
+      color: #FF6B6B;
+    }
+
+    .product-card p {
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(90deg, #ff8a00, #e52e71);
+      color: white;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Indo Exports Hub</h1>
-    <p>Your trusted partner in global trade</p>
   </header>
 
-  <section class="section">
-    <h2>Products We Deal In</h2>
-    <div class="products">
-      <div class="card">
-        <img src="https://source.unsplash.com/featured/?spices" alt="Spices">
-        <h3>Indian Spices</h3>
-        <p>Premium quality spices sourced from the heart of India.</p>
-      </div>
-      <div class="card">
-        <img src="https://source.unsplash.com/featured/?grains" alt="Grains">
-        <h3>Grains & Pulses</h3>
-        <p>High-grade grains and pulses exported with care and hygiene.</p>
-      </div>
-      <div class="card">
-        <img src="https://source.unsplash.com/featured/?handicraft" alt="Handicrafts">
-        <h3>Handicrafts</h3>
-        <p>Authentic Indian handicrafts that reflect culture and tradition.</p>
-      </div>
-    </div>
-  </section>
+  <div class="contact">
+    <p><strong>Contact:</strong> +91 9090348584 | support@indoexportshub.com</p>
+  </div>
 
-  <section class="section">
-    <h2>Contact Us</h2>
-    <div class="contact">
-      <div class="card">
-        <p><strong>Phone:</strong> +91 90903 48584</p>
-        <p><strong>Email:</strong> support@indoexportshub.com</p>
-        <p><strong>Location:</strong> India</p>
-      </div>
+  <section class="products">
+    <div class="product-card">
+      <img src="images/spices.jpg" alt="Indian Spices">
+      <h3>Spices</h3>
+      <p>High-quality whole and ground Indian spices sourced directly from farms.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="images/tea.jpg" alt="Indian Tea">
+      <h3>Tea</h3>
+      <p>Premium-grade tea leaves including Assam, Darjeeling, and Nilgiri varieties.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="images/grains.jpg" alt="Grains and Pulses">
+      <h3>Grains & Pulses</h3>
+      <p>Export-grade rice, lentils, chickpeas, and other pulses grown in India.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="images/handicrafts.jpg" alt="Handicrafts">
+      <h3>Handicrafts</h3>
+      <p>Traditional and contemporary handcrafted items made by Indian artisans.</p>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Indo Exports Hub. All rights reserved.
+    <p>&copy; 2025 Indo Exports Hub. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
