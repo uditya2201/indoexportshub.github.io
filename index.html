@@ -1,28 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Indo Exports Hub</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      padding: 50px;
-      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #ff6f00;
+      color: white;
+      padding: 2rem 1rem;
+      width: 100%;
     }
     h1 {
-      color: #2e86de;
+      margin: 0;
     }
-    p {
-      font-size: 18px;
+    .contact, .products {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin: 1rem;
+      padding: 2rem;
+      max-width: 800px;
+      width: 90%;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+    footer {
+      margin: 2rem 0;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <h1>Indo Exports Hub</h1>
-  <p><strong>Products:</strong> Food Items, Spices, Handicrafts</p>
-  <p><strong>Contact:</strong> Raj Aryan (Partner)</p>
-  <p><strong>Phone:</strong> +91 9090348584</p>
-  <p><strong>Email:</strong> support@indoexportshub.com</p>
+  <header>
+    <h1>Indo Exports Hub</h1>
+    <p>Connecting India to the World – Quality Exports at Your Fingertips</p>
+  </header>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Phone:</strong> +91-9090348584</p>
+    <p><strong>Email:</strong> support@indoexportshub.com</p>
+    <p><strong>Location:</strong> India</p>
+  </section>
+
+  <section class="products">
+    <h2>What We Export</h2>
+    <ul>
+      <li>Spices and Condiments</li>
+      <li>Handicrafts and Decor</li>
+      <li>Tea and Coffee</li>
+      <li>Processed Food Items</li>
+      <li>Textiles and Apparel</li>
+    </ul>
+    <img src="https://source.unsplash.com/800x400/?indian,spices" alt="Export Products" />
+  </section>
+
+  <footer>
+    &copy; 2025 Indo Exports Hub. All rights reserved.
+  </footer>
 </body>
 </html>
