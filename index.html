@@ -18,133 +18,58 @@
       text-align: center;
       color: white;
     }
+    header h1 { margin: 0; font-size: 3rem; font-weight: bold; }
 
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-      font-weight: bold;
-    }
-
+    /* Intro Section with public HTTPS image (works right away) */
     .intro {
-      padding: 40px 20px;
-      background-color: #fff;
-      text-align: center;
-      line-height: 1.7;
-      font-size: 1.1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
+  padding: 60px 20px;
+  text-align: center;
+  line-height: 1.8;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
+              url("images/intro-bg-spices.jpg") no-repeat center center/cover;
+  background-attachment: fixed;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
+}
 
-    .intro h2 {
-      font-size: 2rem;
-      color: #e52e71;
-      margin-bottom: 15px;
-    }
-
-    .intro p {
-      margin: 10px 0;
-      color: #444;
-    }
-
-    .intro span {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #ff6b6b;
-    }
-
-    .contact {
-      text-align: center;
-      padding: 10px 20px;
-      background-color: #fff;
-      color: #555;
-      font-size: 1rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 30px 15px;
-      background-color: #fdfdfd;
-    }
-
-    .product-card {
-      background-color: white;
-      border-radius: 15px;
-      margin: 15px;
-      padding: 20px;
-      width: 280px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .product-card:hover {
-      transform: scale(1.05);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .product-card h3 {
-      margin-top: 15px;
-      color: #FF6B6B;
-    }
-
-    .product-card p {
-      color: #555;
-    }
-
-    .form-section {
-      padding: 40px 20px;
-      background-color: #fdfdfd;
-      text-align: center;
-    }
-
-    .form-section h2 {
-      color: #e52e71;
-    }
-
-    form {
-      max-width: 500px;
+    .intro-content {
+      max-width: 900px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+      animation: fadeIn 1.2s ease-in-out;
     }
 
-    input {
-      padding: 12px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
+    .intro h2 { font-size: 2.6rem; margin-bottom: 18px; }
+    .intro h2 span { color: #ffdd57; }
+    .intro p { font-size: 1.14rem; line-height: 1.7; margin: 12px 0; }
+    .intro .highlight { display: block; margin-top: 14px; font-size: 1.18rem; color: #ffdd57; }
 
-    button {
-      background: linear-gradient(90deg, #ff8a00, #e52e71);
-      color: white;
-      padding: 12px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to {opacity:1; transform:translateY(0);} }
 
-    button:hover {
-      opacity: 0.9;
-    }
+    .products { display: flex; flex-wrap: wrap; justify-content: center; padding: 30px 15px; background-color: #fdfdfd; }
+    .product-card { background:white; border-radius:15px; margin:15px; padding:20px; width:280px; box-shadow:0 8px 20px rgba(0,0,0,0.08); text-align:center; transition:transform .3s ease; }
+    .product-card:hover { transform: scale(1.05); }
+    .product-card img { width:100%; height:180px; object-fit:cover; border-radius:12px; }
+    .product-card h3 { margin-top: 15px; color:#FF6B6B; }
+    .product-card p { color:#555; }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: linear-gradient(90deg, #ff8a00, #e52e71);
-      color: white;
-      font-size: 0.95rem;
+    .form-section { padding: 40px 20px; background-color: #fdfdfd; text-align: center; }
+    .form-section h2 { color: #e52e71; }
+    form { max-width: 500px; margin: 0 auto; display:flex; flex-direction:column; gap:15px; }
+    input { padding:12px; font-size:1rem; border:1px solid #ccc; border-radius:6px; }
+    button { background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; padding:12px; font-size:1rem; border:none; border-radius:6px; cursor:pointer; }
+    button:hover { opacity:0.95; }
+
+    /* Contact at bottom */
+    .contact { text-align:center; padding:20px; background:#fff; color:#555; font-size:1rem; box-shadow:0 2px 4px rgba(0,0,0,0.08); margin-top:18px; }
+
+    footer { text-align:center; padding:20px; background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; font-size:0.95rem; margin-top: 10px; }
+
+    /* small responsive tweaks */
+    @media (max-width:600px) {
+      .intro { padding: 40px 16px; }
+      header h1 { font-size: 2rem; }
+      .intro h2 { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -155,15 +80,11 @@
   </header>
 
   <section class="intro">
-    <h2>Welcome to Indo Exports Hub</h2>
-    <p>Your trusted gateway from India to the world.</p>
-    <p>We specialize in delivering the richness of India’s heritage and agriculture through our premium range of dry fruits, spices, grains & pulses, jute products, handicrafts, and tea. With a commitment to quality, authenticity, and timely delivery, we connect global markets to India’s finest treasures.</p>
-    <p><span>✨ From the farms and artisans of India to your doorstep worldwide – we export excellence.</span></p>
-  </section>
-
-  <div class="contact">
-    <p><strong>Contact:</strong> support@indoexportshub.com</p>
-  </div>
+  <h2>Welcome to Indo Exports Hub</h2>
+  <p>Your trusted gateway from India to the world.</p>
+  <p>We specialize in delivering the richness of India’s heritage and agriculture through our premium range of dry fruits, spices, grains & pulses, jute products, handicrafts, and tea. With a commitment to quality, authenticity, and timely delivery, we connect global markets to India’s finest treasures.</p>
+  <p><span>✨ From the farms and artisans of India to your doorstep worldwide – we export excellence.</span></p>
+</section>
 
   <section class="products">
     <div class="product-card">
@@ -202,6 +123,10 @@
       <button type="submit">Submit</button>
     </form>
   </section>
+
+  <div class="contact">
+    <p><strong>Contact:</strong> support@indoexportshub.com</p>
+  </div>
 
   <footer>
     <p>&copy; 2025 Indo Exports Hub. All rights reserved.</p>
