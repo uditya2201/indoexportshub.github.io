@@ -13,24 +13,26 @@
       scroll-behavior: smooth;
     }
 
+    /* Header */
     header {
       background: #ffffff;
-      padding: 20px 0;
+      padding: 8px 0;   /* reduced from 20px → thinner */
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     header img {
-      max-width: 320px;
+      max-width: 380px;   /* broader logo */
+      width: 100%;
       height: auto;
       animation: fadeInDown 1s ease-in-out;
     }
 
     @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
+      from { opacity: 0; transform: translateY(-15px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -64,9 +66,7 @@
     }
 
     /* Call-to-action buttons */
-    .intro-buttons {
-      margin-top: 25px;
-    }
+    .intro-buttons { margin-top: 25px; }
     .intro-buttons a {
       display: inline-block;
       padding: 12px 24px;
@@ -79,10 +79,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
-    .intro-buttons a:hover {
-      transform: translateY(-3px);
-      opacity: 0.9;
-    }
+    .intro-buttons a:hover { transform: translateY(-3px); opacity: 0.9; }
 
     /* Products Section */
     .products {
@@ -122,7 +119,7 @@
 
     /* Responsive tweaks */
     @media (max-width:600px) {
-      header img { max-width: 240px; }
+      header img { max-width: 260px; }
       .intro { padding: 40px 16px; }
       .intro h2 { font-size: 1.6rem; }
     }
