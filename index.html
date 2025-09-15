@@ -15,23 +15,40 @@
 
     /* Header */
     header {
-      background: rgba(255, 255, 255, 0.95);  /* semi-transparent */
-      padding: 8px 0;   /* initial padding */
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* logo left, button right */
+      padding: 10px 40px;
+      background: rgba(255, 255, 255, 0.95);
       box-shadow: 0 2px 6px rgba(0,0,0,0.07);
       position: sticky;
       top: 0;
       z-index: 1000;
+      backdrop-filter: blur(5px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       transition: padding 0.3s ease;
-      backdrop-filter: blur(5px); /* smooth blur effect */
     }
 
     header img {
-      max-width: 200px;  /* smaller logo */
-      width: auto;
+      max-width: 350px;
       height: auto;
       transition: max-width 0.3s ease;
       animation: fadeInDown 1s ease-in-out;
+    }
+
+    /* Header Contact Button */
+    .header-button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      background: linear-gradient(90deg,#ff8a00,#e52e71);
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .header-button:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
     }
 
     @keyframes fadeInDown {
@@ -116,13 +133,44 @@
     button:hover { opacity:0.95; }
 
     /* Contact at bottom */
-    .contact { text-align:center; padding:20px; background:#fff; color:#555; font-size:1rem; box-shadow:0 2px 4px rgba(0,0,0,0.08); margin-top:18px; }
+    .contact { text-align:center; padding:20px; background:#fff; color:#555; font-size:1rem; box-shadow:0 2px 4px rgba(0,0,0,0.08); margin-top:18px; position: relative; }
 
+    /* Footer */
     footer { text-align:center; padding:20px; background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; font-size:0.95rem; margin-top: 10px; }
+
+    /* Floating WhatsApp Button (icon-only) */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 10000;
+    }
+    .whatsapp-button:hover {
+      transform: translateY(-3px);
+      opacity: 0.9;
+    }
+
+    /* WhatsApp icon */
+    .whatsapp-button svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
 
     /* Responsive tweaks */
     @media (max-width:600px) {
-      header img { max-width: 150px; }
+      header img { max-width: 220px; }
       .intro { padding: 40px 16px; }
       .intro h2 { font-size: 1.6rem; }
     }
@@ -130,9 +178,10 @@
 </head>
 <body>
 
-  <!-- Header with Logo -->
+  <!-- Header with Broader Logo and Contact Button -->
   <header>
     <img src="images/logo.jpg" alt="Indo Exports Hub Logo">
+    <a href="#contact-form" class="header-button">Contact</a>
   </header>
 
   <!-- Intro Section -->
@@ -143,7 +192,7 @@
       <p>We specialize in delivering the richness of India’s heritage and agriculture through our premium range of dry fruits, spices, grains & pulses, jute products, handicrafts, and tea. With a commitment to quality, authenticity, and timely delivery, we connect global markets to India’s finest treasures.</p>
       <p><span>✨ From the farms and artisans of India to your doorstep worldwide – we export excellence.</span></p>
 
-      <!-- Call to action buttons -->
+      <!-- Call-to action buttons -->
       <div class="intro-buttons">
         <a href="#products">Explore Products</a>
         <a href="#contact-form">Get in Touch</a>
@@ -196,25 +245,4 @@
     <p><strong>Contact:</strong> support@indoexportshub.com</p>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Indo Exports Hub. All rights reserved.</p>
-  </footer>
-
-  <!-- Script to shrink header on scroll -->
-  <script>
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('header');
-      const logo = header.querySelector('img');
-      if(window.scrollY > 50) {
-        header.style.padding = "3px 0";
-        logo.style.maxWidth = "150px";
-      } else {
-        header.style.padding = "8px 0";
-        logo.style.maxWidth = "200px";
-      }
-    });
-  </script>
-
-</body>
-</html>
+  <!-- Footer
