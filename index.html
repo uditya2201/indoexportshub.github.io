@@ -1,248 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Indo Exports Hub</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-      scroll-behavior: smooth;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Indo Exports Hub</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    scroll-behavior: smooth;
+  }
 
-    /* Header */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between; /* logo left, button right */
-      padding: 10px 40px;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(5px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      transition: padding 0.3s ease;
-    }
+  /* Header */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 30px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+  }
 
-    header img {
-      max-width: 350px;
-      height: auto;
-      transition: max-width 0.3s ease;
-      animation: fadeInDown 1s ease-in-out;
-    }
+  header img {
+    max-width: 220px;
+    height: auto;
+    transition: max-width 0.3s ease;
+  }
 
-    /* Header Contact Button */
-    .header-button {
-      padding: 10px 20px;
-      border-radius: 8px;
-      background: linear-gradient(90deg,#ff8a00,#e52e71);
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    .header-button:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-    }
+  .header-button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: linear-gradient(90deg,#ff8a00,#e52e71);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  .header-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
 
-    /* Intro Section */
-    .intro {
-      padding: 60px 20px;
-      text-align: center;
-      line-height: 1.8;
-      font-size: 1.2rem;
-      color: #fff;
-      background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
-                  url("images/intro-bg-spices.png") no-repeat center center/cover;
-      background-attachment: fixed;
-      box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
-    }
+  /* Header shrink on scroll */
+  .shrink header {
+    padding: 4px 30px;
+  }
+  .shrink header img {
+    max-width: 150px;
+  }
 
-    .intro-content {
-      max-width: 900px;
-      margin: 0 auto;
-      animation: fadeIn 1.2s ease-in-out;
-    }
+  /* Intro Section */
+  .intro {
+    padding: 60px 20px;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    color: #fff;
+    background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
+                url("images/intro-bg-spices.png") no-repeat center center/cover;
+    background-attachment: fixed;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
+  }
 
-    .intro h2 { font-size: 2.4rem; margin-bottom: 18px; font-weight: bold; }
-    .intro h2 span { color: #ffdd57; }
-    .intro p { font-size: 1.14rem; line-height: 1.7; margin: 12px 0; }
-    .intro .highlight { display: block; margin-top: 14px; font-size: 1.18rem; color: #ffdd57; }
+  .intro h2 { font-size: 2.2rem; margin-bottom: 18px; font-weight: bold; }
+  .intro h2 span { color: #ffdd57; }
+  .intro p { font-size: 1.14rem; line-height: 1.7; margin: 12px 0; }
 
-    @keyframes fadeIn { 
-      from { opacity: 0; transform: translateY(20px);} 
-      to { opacity:1; transform:translateY(0);} 
-    }
+  .intro-buttons { margin-top: 25px; }
+  .intro-buttons a {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .intro-buttons a:hover { transform: translateY(-3px); opacity: 0.9; }
 
-    /* Call-to-action buttons */
-    .intro-buttons { margin-top: 25px; }
-    .intro-buttons a {
-      display: inline-block;
-      padding: 12px 24px;
-      margin: 10px;
-      border-radius: 8px;
-      font-size: 1rem;
-      text-decoration: none;
-      color: white;
-      background: linear-gradient(90deg, #ff8a00, #e52e71);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .intro-buttons a:hover { transform: translateY(-3px); opacity: 0.9; }
+  /* Products Section */
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 15px;
+    background-color: #fdfdfd;
+  }
+  .product-card {
+    background:white;
+    border-radius:15px;
+    margin:15px;
+    padding:20px;
+    width:280px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    text-align:center;
+    transition:transform .3s ease;
+  }
+  .product-card:hover { transform: scale(1.05); }
+  .product-card img { width:100%; height:180px; object-fit:cover; border-radius:12px; }
+  .product-card h3 { margin-top: 15px; color:#FF6B6B; }
+  .product-card p { color:#555; }
 
-    /* Products Section */
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 30px 15px;
-      background-color: #fdfdfd;
-    }
-    .product-card {
-      background:white;
-      border-radius:15px;
-      margin:15px;
-      padding:20px;
-      width:280px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.08);
-      text-align:center;
-      transition:transform .3s ease;
-    }
-    .product-card:hover { transform: scale(1.05); }
-    .product-card img { width:100%; height:180px; object-fit:cover; border-radius:12px; }
-    .product-card h3 { margin-top: 15px; color:#FF6B6B; }
-    .product-card p { color:#555; }
+  /* Contact Form */
+  .form-section { padding: 40px 20px; background-color: #fdfdfd; text-align: center; }
+  .form-section h2 { color: #e52e71; }
+  form { max-width: 500px; margin: 0 auto; display:flex; flex-direction:column; gap:15px; }
+  input { padding:12px; font-size:1rem; border:1px solid #ccc; border-radius:6px; }
+  button { background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; padding:12px; font-size:1rem; border:none; border-radius:6px; cursor:pointer; }
+  button:hover { opacity:0.95; }
 
-    /* Contact Form Section */
-    .form-section { padding: 40px 20px; background-color: #fdfdfd; text-align: center; }
-    .form-section h2 { color: #e52e71; }
-    form { max-width: 500px; margin: 0 auto; display:flex; flex-direction:column; gap:15px; }
-    input { padding:12px; font-size:1rem; border:1px solid #ccc; border-radius:6px; }
-    button { background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; padding:12px; font-size:1rem; border:none; border-radius:6px; cursor:pointer; }
-    button:hover { opacity:0.95; }
+  /* Footer */
+  footer { text-align:center; padding:20px; background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; font-size:0.95rem; margin-top: 10px; }
 
-    /* Contact at bottom */
-    .contact { text-align:center; padding:20px; background:#fff; color:#555; font-size:1rem; box-shadow:0 2px 4px rgba(0,0,0,0.08); margin-top:18px; position: relative; }
+  /* WhatsApp Floating Icon */
+  .whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366; 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 10000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .whatsapp-button:hover { transform: translateY(-3px); opacity:0.9; }
+  .whatsapp-button svg { width:28px; height:28px; fill:white; }
 
-    /* Footer */
-    footer { text-align:center; padding:20px; background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; font-size:0.95rem; margin-top: 10px; }
-
-    /* Floating WhatsApp Button (icon-only) */
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      z-index: 10000;
-    }
-    .whatsapp-button:hover {
-      transform: translateY(-3px);
-      opacity: 0.9;
-    }
-
-    /* WhatsApp icon */
-    .whatsapp-button svg {
-      width: 28px;
-      height: 28px;
-      fill: white;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width:600px) {
-      header img { max-width: 220px; }
-      .intro { padding: 40px 16px; }
-      .intro h2 { font-size: 1.6rem; }
-    }
-  </style>
+  /* Responsive tweaks */
+  @media (max-width:600px) {
+    header img { max-width: 160px; }
+    .intro { padding: 40px 16px; }
+    .intro h2 { font-size: 1.6rem; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Header with Broader Logo and Contact Button -->
-  <header>
-    <img src="images/logo.jpg" alt="Indo Exports Hub Logo">
-    <a href="#contact-form" class="header-button">Contact</a>
-  </header>
+<!-- Header -->
+<header>
+  <img src="images/logo.jpg" alt="Indo Exports Hub Logo">
+  <a href="#contact-form" class="header-button">Contact</a>
+</header>
 
-  <!-- Intro Section -->
-  <section class="intro">
-    <div class="intro-content">
-      <h2>Welcome to <span>Indo Exports Hub</span></h2>
-      <p>Your trusted gateway from India to the world.</p>
-      <p>We specialize in delivering the richness of India’s heritage and agriculture through our premium range of dry fruits, spices, grains & pulses, jute products, handicrafts, and tea. With a commitment to quality, authenticity, and timely delivery, we connect global markets to India’s finest treasures.</p>
-      <p><span>✨ From the farms and artisans of India to your doorstep worldwide – we export excellence.</span></p>
-
-      <!-- Call-to action buttons -->
-      <div class="intro-buttons">
-        <a href="#products">Explore Products</a>
-        <a href="#contact-form">Get in Touch</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Products Section -->
-  <section class="products" id="products">
-    <div class="product-card">
-      <img src="images/spices.jpg" alt="Indian Spices">
-      <h3>Spices</h3>
-      <p>High-quality whole and ground Indian spices sourced directly from farms.</p>
-    </div>
-
-    <div class="product-card">
-      <img src="images/tea.jpg" alt="Indian Tea">
-      <h3>Tea</h3>
-      <p>Premium-grade tea leaves including Assam, Darjeeling, and Nilgiri varieties.</p>
-    </div>
-
-    <div class="product-card">
-      <img src="images/grains.jpg" alt="Grains and Pulses">
-      <h3>Grains & Pulses</h3>
-      <p>Export-grade rice, lentils, chickpeas, and other pulses grown in India.</p>
-    </div>
-
-    <div class="product-card">
-      <img src="images/handicrafts.jpg" alt="Handicrafts">
-      <h3>Handicrafts</h3>
-      <p>Traditional and contemporary handcrafted items made by Indian artisans.</p>
-    </div>
-  </section>
-
-  <!-- Contact Form -->
-  <section class="form-section" id="contact-form">
-    <h2>Get in Touch</h2>
-    <p>Leave your details and we'll get back to you shortly.</p>
-    <form action="https://formspree.io/f/mqalyqdz" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="tel" name="phone" placeholder="Your Phone Number" required>
-      <input type="hidden" name="_captcha" value="false">
-      <button type="submit">Submit</button>
-    </form>
-  </section>
-
-  <!-- Contact Info -->
-  <div class="contact">
-    <p><strong>Contact:</strong> support@indoexportshub.com</p>
+<!-- Intro Section -->
+<section class="intro">
+  <h2>Welcome to <span>Indo Exports Hub</span></h2>
+  <p>Your trusted gateway from India to the world.</p>
+  <p>We specialize in delivering premium dry fruits, spices, grains & pulses, jute products, handicrafts, and tea. With a commitment to quality and authenticity, we connect global markets to India’s finest treasures.</p>
+  <div class="intro-buttons">
+    <a href="#products">Explore Products</a>
+    <a href="#contact-form">Get in Touch</a>
   </div>
+</section>
 
-  <!-- Footer
+<!-- Products Section -->
+<section class="products" id="products">
+  <div class="product-card">
+    <img src="images/spices.jpg" alt="Spices">
+    <h3>Spices</h3>
+    <p>High-quality whole and ground Indian spices sourced directly from farms.</p>
+  </div>
+  <div class="product-card">
+    <img src="images/tea.jpg" alt="Tea">
+    <h3>Tea</h3>
+    <p>Premium-grade tea leaves including Assam, Darjeeling, and Nilgiri varieties.</p>
+  </div>
+  <div class="product-card">
+    <img src="images/grains.jpg" alt="Grains & Pulses">
+    <h3>Grains & Pulses</h3>
+    <p>Export-grade rice, lentils, chickpeas, and other pulses grown in India.</p>
+  </div>
+  <div class="product-card">
+    <img src="images/handicrafts.jpg" alt="Handicrafts">
+    <h3>Handicrafts</h3>
+    <p>Traditional and contemporary handcrafted items made by Indian artisans.</p>
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section class="form-section" id="contact-form">
+  <h2>Get in Touch</h2>
+  <form action="https://formspree.io/f/mqalyqdz" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="tel" name="phone" placeholder="Your Phone Number" required>
+    <input type="hidden" name="_captcha" value="false">
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<!-- WhatsApp Floating Icon -->
+<a href="https://wa.me/919090348584" target="_blank" class="whatsapp-button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <path fill="white" d="M380.9 97.1C339 55.2 284.3 32 224 32 100.3 32 0 132.3 0 256c0 45.2 12.5 87.4 34.2 124.3L0 480l101.6-33.6C138.6 499.5 181.9 512 224 512c123.7 0 224-100.3 224-224 0-60.3-23.2-115-67.1-154.9zm-154 295.7c-34.6 0-67-9.2-94.7-25.1l-6.8-4-60.3 19.9 20.3-58.7-4.4-7.1c-20.6-33.5-31.6-72.2-31.6-112.8 0-112.1 91.2-203.3 203.3-203.3 54.2 0 105.1 21.1 143.4 59.4 38.3 38.3 59.4 89.2 59.4 143.4.1 112.1-91 203.3-203.3 203.3zm101.2-138.8c-5.5-2.8-32.7-16.1-37.7-17.9-5-1.8-8.7-2.8-12.3 2.8-3.6 5.5-14 17.9-17.2 21.6-3.2 3.6-6.5 4.1-12 1.4-32.7-16.3-54-29.1-75.5-66.1-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.6.9-6.7-.5-9.5-1.4-2.8-12.3-29.7-16.9-40.7-4.4-10.7-8.9-9.2-12.3-9.4-3.2-.2-6.8-.2-10.5-.2s-9.5 1.4-14.5 6.8c-5 5.5-19.1 18.7-19.1 45.7s19.6 53.1 22.3 56.8c2.8 3.6 38.5 58.8 93.1 82.5 13 5.6 23.1 8.9 31 11.4 13 4.1 24.8 3.5 34.2 2.1 10.5-1.5 32.7-13.3 37.4-26.1 4.8-12.8 4.8-23.7 3.4-26.1-1.5
