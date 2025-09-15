@@ -10,28 +10,38 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f5f5f5;
       color: #333;
+      scroll-behavior: smooth;
     }
 
     header {
       background: linear-gradient(90deg, #ff8a00, #e52e71);
-      padding: 30px 0;
+      padding: 20px 0;
       text-align: center;
-      color: white;
     }
-    header h1 { margin: 0; font-size: 3rem; font-weight: bold; }
 
-    /* Intro Section with public HTTPS image (works right away) */
+    header img {
+      max-width: 320px;
+      height: auto;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Intro Section */
     .intro {
-  padding: 60px 20px;
-  text-align: center;
-  line-height: 1.8;
-  font-size: 1.2rem;
-  color: #fff;
-  background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
-              url("images/intro-bg-spices.png") no-repeat center center/cover;
-  background-attachment: fixed;
-  box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
-}
+      padding: 60px 20px;
+      text-align: center;
+      line-height: 1.8;
+      font-size: 1.2rem;
+      color: #fff;
+      background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
+                  url("images/intro-bg-spices.png") no-repeat center center/cover;
+      background-attachment: fixed;
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
+    }
 
     .intro-content {
       max-width: 900px;
@@ -39,20 +49,61 @@
       animation: fadeIn 1.2s ease-in-out;
     }
 
-    .intro h2 { font-size: 2.6rem; margin-bottom: 18px; }
+    .intro h2 { font-size: 2.4rem; margin-bottom: 18px; font-weight: bold; }
     .intro h2 span { color: #ffdd57; }
     .intro p { font-size: 1.14rem; line-height: 1.7; margin: 12px 0; }
     .intro .highlight { display: block; margin-top: 14px; font-size: 1.18rem; color: #ffdd57; }
 
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to {opacity:1; transform:translateY(0);} }
+    @keyframes fadeIn { 
+      from { opacity: 0; transform: translateY(20px);} 
+      to { opacity:1; transform:translateY(0);} 
+    }
 
-    .products { display: flex; flex-wrap: wrap; justify-content: center; padding: 30px 15px; background-color: #fdfdfd; }
-    .product-card { background:white; border-radius:15px; margin:15px; padding:20px; width:280px; box-shadow:0 8px 20px rgba(0,0,0,0.08); text-align:center; transition:transform .3s ease; }
+    /* Call-to-action buttons */
+    .intro-buttons {
+      margin-top: 25px;
+    }
+    .intro-buttons a {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(90deg, #ff8a00, #e52e71);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .intro-buttons a:hover {
+      transform: translateY(-3px);
+      opacity: 0.9;
+    }
+
+    /* Products Section */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px 15px;
+      background-color: #fdfdfd;
+    }
+    .product-card {
+      background:white;
+      border-radius:15px;
+      margin:15px;
+      padding:20px;
+      width:280px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      text-align:center;
+      transition:transform .3s ease;
+    }
     .product-card:hover { transform: scale(1.05); }
     .product-card img { width:100%; height:180px; object-fit:cover; border-radius:12px; }
     .product-card h3 { margin-top: 15px; color:#FF6B6B; }
     .product-card p { color:#555; }
 
+    /* Contact Form Section */
     .form-section { padding: 40px 20px; background-color: #fdfdfd; text-align: center; }
     .form-section h2 { color: #e52e71; }
     form { max-width: 500px; margin: 0 auto; display:flex; flex-direction:column; gap:15px; }
@@ -65,28 +116,39 @@
 
     footer { text-align:center; padding:20px; background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; font-size:0.95rem; margin-top: 10px; }
 
-    /* small responsive tweaks */
+    /* Responsive tweaks */
     @media (max-width:600px) {
+      header img { max-width: 240px; }
       .intro { padding: 40px 16px; }
-      header h1 { font-size: 2rem; }
       .intro h2 { font-size: 1.6rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Header with Logo -->
   <header>
-    <h1>Indo Exports Hub</h1>
+    <img src="images/logo.jpg" alt="Indo Exports Hub Logo">
   </header>
 
+  <!-- Intro Section -->
   <section class="intro">
-  <h2>Welcome to Indo Exports Hub</h2>
-  <p>Your trusted gateway from India to the world.</p>
-  <p>We specialize in delivering the richness of India’s heritage and agriculture through our premium range of dry fruits, spices, grains & pulses, jute products, handicrafts, and tea. With a commitment to quality, authenticity, and timely delivery, we connect global markets to India’s finest treasures.</p>
-  <p><span>✨ From the farms and artisans of India to your doorstep worldwide – we export excellence.</span></p>
-</section>
+    <div class="intro-content">
+      <h2>Welcome to <span>Indo Exports Hub</span></h2>
+      <p>Your trusted gateway from India to the world.</p>
+      <p>We specialize in delivering the richness of India’s heritage and agriculture through our premium range of dry fruits, spices, grains & pulses, jute products, handicrafts, and tea. With a commitment to quality, authenticity, and timely delivery, we connect global markets to India’s finest treasures.</p>
+      <p><span>✨ From the farms and artisans of India to your doorstep worldwide – we export excellence.</span></p>
 
-  <section class="products">
+      <!-- Call to action buttons -->
+      <div class="intro-buttons">
+        <a href="#products">Explore Products</a>
+        <a href="#contact-form">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products" id="products">
     <div class="product-card">
       <img src="images/spices.jpg" alt="Indian Spices">
       <h3>Spices</h3>
@@ -112,7 +174,8 @@
     </div>
   </section>
 
-  <section class="form-section">
+  <!-- Contact Form -->
+  <section class="form-section" id="contact-form">
     <h2>Get in Touch</h2>
     <p>Leave your details and we'll get back to you shortly.</p>
     <form action="https://formspree.io/f/mqalyqdz" method="POST">
@@ -124,14 +187,15 @@
     </form>
   </section>
 
+  <!-- Contact Info -->
   <div class="contact">
     <p><strong>Contact:</strong> support@indoexportshub.com</p>
   </div>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Indo Exports Hub. All rights reserved.</p>
   </footer>
 
 </body>
 </html>
-
