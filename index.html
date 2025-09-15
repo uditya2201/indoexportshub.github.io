@@ -1,235 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Indo Exports Hub</title>
-<style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    scroll-behavior: smooth;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Indo Exports Hub</title>
+  
+  <!-- Elegant Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      scroll-behavior: smooth;
+    }
 
-  /* Header */
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 30px;
-    background: rgba(255, 255, 255, 0.9); /* semi-transparent white */
-    /* optional gradient: linear-gradient(90deg, #ffffff, #fefefe); */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(5px);
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-  }
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      padding: 6px 20px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
 
-  header img {
-    max-width: 220px;
-    height: auto;
-    transition: max-width 0.3s ease;
-  }
+    header img {
+      max-height: 40px; /* smaller logo */
+      transition: max-height 0.3s ease;
+    }
 
-  .header-button {
-    padding: 8px 16px;
-    border-radius: 8px;
-    background: linear-gradient(90deg,#ff8a00,#e52e71);
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
+    .brand-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #333;
+      transition: font-size 0.3s ease;
+    }
 
-  .header-button:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-  }
+    /* Shrink effect on scroll */
+    .shrink header {
+      padding: 4px 20px;
+    }
+    .shrink header img {
+      max-height: 28px;
+    }
+    .shrink .brand-name {
+      font-size: 1rem;
+    }
 
-  /* Header shrink on scroll */
-  .shrink header {
-    padding: 4px 30px;
-  }
-  .shrink header img {
-    max-width: 150px;
-  }
+    /* Intro Section */
+    .intro {
+      padding: 60px 20px;
+      text-align: center;
+      line-height: 1.8;
+      font-size: 1.2rem;
+      color: #fff;
+      background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
+                  url("images/intro-bg-spices.png") no-repeat center center/cover;
+      background-attachment: fixed;
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
+    }
 
-  /* Intro Section */
-  .intro {
-    padding: 60px 20px;
-    text-align: center;
-    line-height: 1.8;
-    font-size: 1.2rem;
-    color: #fff;
-    background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
-                url("images/intro-bg-spices.png") no-repeat center center/cover;
-    background-attachment: fixed;
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
-  }
+    .intro-content {
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeIn 1.2s ease-in-out;
+    }
 
-  .intro h2 { font-size: 2.2rem; margin-bottom: 18px; font-weight: bold; }
-  .intro h2 span { color: #ffdd57; }
-  .intro p { font-size: 1.14rem; line-height: 1.7; margin: 12px 0; }
+    .intro h2 { font-size: 2.4rem; margin-bottom: 18px; font-weight: bold; }
+    .intro h2 span { color: #ffdd57; }
+    .intro p { font-size: 1.14rem; line-height: 1.7; margin: 12px 0; }
+    .intro .highlight { display: block; margin-top: 14px; font-size: 1.18rem; color: #ffdd57; }
 
-  .intro-buttons { margin-top: 25px; }
-  .intro-buttons a {
-    display: inline-block;
-    padding: 12px 24px;
-    margin: 10px;
-    border-radius: 8px;
-    font-size: 1rem;
-    text-decoration: none;
-    color: white;
-    background: linear-gradient(90deg, #ff8a00, #e52e71);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  .intro-buttons a:hover { transform: translateY(-3px); opacity: 0.9; }
+    @keyframes fadeIn { 
+      from { opacity: 0; transform: translateY(20px);} 
+      to { opacity:1; transform:translateY(0);} 
+    }
 
-  /* Products Section */
-  .products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 30px 15px;
-    background-color: #fdfdfd;
-  }
-  .product-card {
-    background:white;
-    border-radius:15px;
-    margin:15px;
-    padding:20px;
-    width:280px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-    text-align:center;
-    transition:transform .3s ease;
-  }
-  .product-card:hover { transform: scale(1.05); }
-  .product-card img { width:100%; height:180px; object-fit:cover; border-radius:12px; }
-  .product-card h3 { margin-top: 15px; color:#FF6B6B; }
-  .product-card p { color:#555; }
+    /* Call-to-action buttons */
+    .intro-buttons { margin-top: 25px; }
+    .intro-buttons a {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(90deg, #ff8a00, #e52e71);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .intro-buttons a:hover { transform: translateY(-3px); opacity: 0.9; }
 
-  /* Contact Form */
-  .form-section { padding: 40px 20px; background-color: #fdfdfd; text-align: center; }
-  .form-section h2 { color: #e52e71; }
-  form { max-width: 500px; margin: 0 auto; display:flex; flex-direction:column; gap:15px; }
-  input { padding:12px; font-size:1rem; border:1px solid #ccc; border-radius:6px; }
-  button { background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; padding:12px; font-size:1rem; border:none; border-radius:6px; cursor:pointer; }
-  button:hover { opacity:0.95; }
+    /* Products Section */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px 15px;
+      background-color: #fdfdfd;
+    }
+    .product-card {
+      background:white;
+      border-radius:15px;
+      margin:15px;
+      padding:20px;
+      width:280px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      text-align:center;
+      transition:transform .3s ease;
+    }
+    .product-card:hover { transform: scale(1.05); }
+    .product-card img { width:100%; height:180px; object-fit:cover; border-radius:12px; }
+    .product-card h3 { margin-top: 15px; color:#FF6B6B; }
+    .product-card p { color:#555; }
 
-  /* Footer */
-  footer { text-align:center; padding:20px; background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; font-size:0.95rem; margin-top: 10px; }
+    /* Contact Form Section */
+    .form-section { padding: 40px 20px; background-color: #fdfdfd; text-align: center; }
+    .form-section h2 { color: #e52e71; }
+    form { max-width: 500px; margin: 0 auto; display:flex; flex-direction:column; gap:15px; }
+    input { padding:12px; font-size:1rem; border:1px solid #ccc; border-radius:6px; }
+    button { background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; padding:12px; font-size:1rem; border:none; border-radius:6px; cursor:pointer; }
+    button:hover { opacity:0.95; }
 
-  /* WhatsApp Floating Icon */
-  .whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366; 
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    z-index: 10000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  .whatsapp-button:hover { transform: translateY(-3px); opacity:0.9; }
-  .whatsapp-button svg { width:28px; height:28px; fill:white; }
+    /* Contact at bottom */
+    .contact { text-align:center; padding:20px; background:#fff; color:#555; font-size:1rem; box-shadow:0 2px 4px rgba(0,0,0,0.08); margin-top:18px; }
 
-  /* Responsive tweaks */
-  @media (max-width:600px) {
-    header img { max-width: 160px; }
-    .intro { padding: 40px 16px; }
-    .intro h2 { font-size: 1.6rem; }
-  }
-</style>
+    footer { text-align:center; padding:20px; background: linear-gradient(90deg,#ff8a00,#e52e71); color:white; font-size:0.95rem; margin-top: 10px; }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366; 
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      z-index: 10000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .whatsapp-button:hover { transform: translateY(-3px); opacity:0.9; }
+    .whatsapp-button svg { width:28px; height:28px; fill:white; }
+
+    /* Responsive tweaks */
+    @media (max-width:600px) {
+      header img { max-height: 32px; }
+      .brand-name { font-size: 1rem; }
+      .intro { padding: 40px 16px; }
+      .intro h2 { font-size: 1.6rem; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <img src="images/logo.jpg" alt="Indo Exports Hub Logo">
-  <a href="#contact-form" class="header-button">Contact</a>
-</header>
+  <!-- Header with Logo + Brand Name -->
+  <header>
+    <img src="images/logo.jpg" alt="Indo Exports Hub Logo">
+    <span class="brand-name">INDO EXPORTS HUB</span>
+  </header>
 
-<!-- Intro Section -->
-<section class="intro">
-  <h2>Welcome to <span>Indo Exports Hub</span></h2>
-  <p>Your trusted gateway from India to the world.</p>
-  <p>We specialize in delivering premium dry fruits, spices, grains & pulses, jute products, handicrafts, and tea. With a commitment to quality and authenticity, we connect global markets to India’s finest treasures.</p>
-  <div class="intro-buttons">
-    <a href="#products">Explore Products</a>
-    <a href="#contact-form">Get in Touch</a>
+  <!-- Intro Section -->
+  <section class="intro">
+    <div class="intro-content">
+      <h2>Welcome to <span>Indo Exports Hub</span></h2>
+      <p>Your trusted gateway from India to the world.</p>
+      <p>We specialize in delivering the richness of India’s heritage and agriculture through our premium range of dry fruits, spices, grains & pulses, jute products, handicrafts, and tea. With a commitment to quality, authenticity, and timely delivery, we connect global markets to India’s finest treasures.</p>
+      <p><span>✨ From the farms and artisans of India to your doorstep worldwide – we export excellence.</span></p>
+
+      <!-- Call to action buttons -->
+      <div class="intro-buttons">
+        <a href="#products">Explore Products</a>
+        <a href="#contact-form">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products" id="products">
+    <div class="product-card">
+      <img src="images/spices.jpg" alt="Indian Spices">
+      <h3>Spices</h3>
+      <p>High-quality whole and ground Indian spices sourced directly from farms.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="images/tea.jpg" alt="Indian Tea">
+      <h3>Tea</h3>
+      <p>Premium-grade tea leaves including Assam, Darjeeling, and Nilgiri varieties.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="images/grains.jpg" alt="Grains and Pulses">
+      <h3>Grains & Pulses</h3>
+      <p>Export-grade rice, lentils, chickpeas, and other pulses grown in India.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="images/handicrafts.jpg" alt="Handicrafts">
+      <h3>Handicrafts</h3>
+      <p>Traditional and contemporary handcrafted items made by Indian artisans.</p>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="form-section" id="contact-form">
+    <h2>Get in Touch</h2>
+    <p>Leave your details and we'll get back to you shortly.</p>
+    <form action="https://formspree.io/f/mqalyqdz" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Your Phone Number" required>
+      <input type="hidden" name="_captcha" value="false">
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Contact Info -->
+  <div class="contact">
+    <p><strong>Contact:</strong> support@indoexportshub.com</p>
   </div>
-</section>
 
-<!-- Products Section -->
-<section class="products" id="products">
-  <div class="product-card">
-    <img src="images/spices.jpg" alt="Spices">
-    <h3>Spices</h3>
-    <p>High-quality whole and ground Indian spices sourced directly from farms.</p>
-  </div>
-  <div class="product-card">
-    <img src="images/tea.jpg" alt="Tea">
-    <h3>Tea</h3>
-    <p>Premium-grade tea leaves including Assam, Darjeeling, and Nilgiri varieties.</p>
-  </div>
-  <div class="product-card">
-    <img src="images/grains.jpg" alt="Grains & Pulses">
-    <h3>Grains & Pulses</h3>
-    <p>Export-grade rice, lentils, chickpeas, and other pulses grown in India.</p>
-  </div>
-  <div class="product-card">
-    <img src="images/handicrafts.jpg" alt="Handicrafts">
-    <h3>Handicrafts</h3>
-    <p>Traditional and contemporary handcrafted items made by Indian artisans.</p>
-  </div>
-</section>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Indo Exports Hub. All rights reserved.</p>
+  </footer>
 
-<!-- Contact Form -->
-<section class="form-section" id="contact-form">
-  <h2>Get in Touch</h2>
-  <form action="https://formspree.io/f/mqalyqdz" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="tel" name="phone" placeholder="Your Phone Number" required>
-    <input type="hidden" name="_captcha" value="false">
-    <button type="submit">Submit</button>
-  </form>
-</section>
+  <!-- WhatsApp Floating Icon -->
+  <a href="https://wa.me/919090348584" target="_blank" class="whatsapp-button">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <path fill="white" d="M16 0C7.164 0 0 7.164 0 16c0 2.826.735 5.467 2.01 7.805L0 32l8.486-2.01C11.533 31.265 14.174 32 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm8.8 23.744c-.343.97-2.014 1.863-2.791 1.98-.747.115-1.637.161-3.208-.57-4.057-1.554-6.674-5.092-6.867-5.334-.193-.242-1.567-1.996-1.567-3.818 0-1.822 1.085-2.722 1.472-3.086.384-.361.85-.454 1.133-.454.287 0 .566.003.814.012.265.01.39.037.56.563.17.525.58 1.812.632 1.946.053.134.087.293-.17.465-.257.171-.474.343-.678.515-.207.172-.426.354-.61.593-.184.238-.394.563-.168 1.11.226.548 1.025 1.786 2.195 2.888 1.518 1.43 2.792 1.85 3.302 2.057.51.208.808.176.987.108.178-.067.564-.23.79-.464.226-.234.563-.453.81-.607.25-.154.416-.13.717.078.3.207 2.154 1.014 2.523 1.196.37.182.617.272.708.425.091.154.091.893-.252 1.862z"/>
+    </svg>
+  </a>
 
-<!-- WhatsApp Floating Icon -->
-<a href="https://wa.me/919090348584" target="_blank" class="whatsapp-button">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-    <path fill="white" d="M16 0C7.164 0 0 7.164 0 16c0 2.826.735 5.467 2.01 7.805L0 32l8.486-2.01C11.533 31.265 14.174 32 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm8.8 23.744c-.343.97-2.014 1.863-2.791 1.98-.747.115-1.637.161-3.208-.57-4.057-1.554-6.674-5.092-6.867-5.334-.193-.242-1.567-1.996-1.567-3.818 0-1.822 1.085-2.722 1.472-3.086.384-.361.85-.454 1.133-.454.287 0 .566.003.814.012.265.01.39.037.56.563.17.525.58 1.812.632 1.946.053.134.087.293-.17.465-.257.171-.474.343-.678.515-.207.172-.426.354-.61.593-.184.238-.394.563-.168 1.11.226.548 1.025 1.786 2.195 2.888 1.518 1.43 2.792 1.85 3.302 2.057.51.208.808.176.987.108.178-.067.564-.23.79-.464.226-.234.563-.453.81-.607.25-.154.416-.13.717.078.3.207 2.154 1.014 2.523 1.196.37.182.617.272.708.425.091.154.091.893-.252 1.862z"/>
-  </svg>
-</a>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Indo Exports Hub. All rights reserved.</p>
-</footer>
-
-<script>
-  // Shrink header on scroll
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 50) {
-      document.body.classList.add('shrink');
-    } else {
-      document.body.classList.remove('shrink');
-    }
-  });
-</script>
+  <script>
+    // Shrink header on scroll
+    window.addEventListener("scroll", function() {
+      document.body.classList.toggle("shrink", window.scrollY > 50);
+    });
+  </script>
 
 </body>
 </html>
